@@ -1,0 +1,121 @@
+:root {
+  --primary: #003287;
+  --secondary: #f90302;
+  --background: #fff6f4;
+}
+
+body {
+  background-color: #ffffff;
+  color: #ffffff;
+}
+
+.nav-item {
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #000;
+}
+
+/* Styling for the underline effect */
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    var(--primary),
+    var(--primary)
+  );
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+.flip-container {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  transform-style: preserve-3d;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.form-face {
+  background: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  backface-visibility: hidden;
+  width: 100%;
+  /* height: 100%; */
+  z-index: 1;
+}
+
+.front {
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.flip-container.flip {
+  transform: rotateY(180deg);
+}
+
+/* Texts glowing */
+.silver-text-glow {
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 2px rgb(60, 60, 60), 2px 2px 4px rgb(43, 43, 43),
+    2px 2px 6px rgb(186, 183, 183);
+}
+.silver-bg {
+  background: radial-gradient(rgb(223, 222, 222), rgb(126, 126, 126));
+}
+
+.gold-text-glow {
+  color: rgb(251, 212, 70);
+  text-shadow: 2px 2px 2px rgb(77, 58, 0), 2px 2px 4px rgb(108, 89, 1),
+    2px 2px 6px rgb(48, 38, 1);
+}
+.gold-bg {
+  background: radial-gradient(rgb(235, 222, 172), rgb(125, 106, 0));
+}
+
+.diamond-text-glow {
+  color: rgb(235, 235, 239);
+  text-shadow: 2px 2px 2px rgba(66, 67, 67, 0.5),
+    2px 2px 4px rgba(49, 49, 49, 0.5), 2px 2px 6px rgba(30, 30, 30, 0.5);
+}
+.diamond-bg {
+  background: radial-gradient(rgb(172, 179, 235), rgb(52, 34, 248));
+}
+
+.platinum-text-glow {
+  color: rgb(235, 234, 234);
+  text-shadow: 2px 2px 2px rgb(46, 45, 45), 2px 2px 4px rgb(27, 26, 26),
+    2px 2px 6px rgb(51, 51, 51);
+}
+.platinum-bg {
+  background: radial-gradient(rgb(223, 222, 222), rgb(82, 82, 82));
+}
+
+.commercial-text-glow {
+  color: rgb(237, 222, 222);
+  text-shadow: 2px 2px 2px rgb(46, 45, 45), 2px 2px 4px rgb(27, 26, 26),
+    2px 2px 6px rgb(51, 51, 51);
+}
+.commercial-bg {
+  background: radial-gradient(rgb(133, 122, 122), rgb(54, 37, 37));
+}

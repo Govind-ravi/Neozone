@@ -1,0 +1,39 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html{
+  scrollbar-width: none;
+}
+
+.text3d{
+  text-shadow: 2px 2px 3px #00163c, 2px 2px 3px #00163c;
+}
+.swiper-slide>div {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.5;
+  /* height: 300px; */
+  transition: all 0.3s ease;
+  transform: scale(0.90);
+}
+
+.swiper-slide-active>div {
+  overflow: hidden;
+  opacity: 1; 
+  transform: scale(1.2);
+  overflow: hidden;
+  margin: auto;
+  border-radius: 10px;
+}
+
+
+
