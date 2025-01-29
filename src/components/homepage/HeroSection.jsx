@@ -92,7 +92,7 @@ function HeroSection() {
     <div className="flex p-4 px-16 gap-4 items-center">
       <div className="w-[45%] flex flex-col gap-6">
         <h1 className="text3d text-6xl font-semibold text-primary">
-          NEOZONE Building Technologies LLP
+          Neozone Constructions & Builders LLP
         </h1>
         <p className="p3d text-2xl font-semibold">
           Step into the home you’ve always dreamed of built to the highest
