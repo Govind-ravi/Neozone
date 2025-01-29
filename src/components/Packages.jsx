@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import PackageCard from "./PackageCard";
 import Logo from "../assets/Logo.jpeg";
 
@@ -396,10 +396,20 @@ const Packages = () => {
   // Tabs Data
   const tabs = ["regular", "luxury"];
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Extract scheme from URL (using query parameter)
+  const getQueryParamScheme = () => {
+    const params = new URLSearchParams(location.search);
+    return params.get("scheme");
+  };
+
   // State for active tab and selected package
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const [scheme, setScheme] = useState(
-    packagesData.find((item) => item.package_name === "Silver")
+    packagesData.find((item) => item.package_name === getQueryParamScheme()) ||
+      packagesData[0]
   );
 
   // Change Package Handler
@@ -408,7 +418,17 @@ const Packages = () => {
       (item) => item.package_name === packageName
     );
     setScheme(foundPackage);
+
+    // Update URL with the selected scheme
+    navigate(`?scheme=${packageName}`, { replace: true });
   };
+
+  useEffect(() => {
+    // If no query param is found, default to 'Silver' or whatever package you want as default
+    if (!getQueryParamScheme()) {
+      navigate(`?scheme=Silver`, { replace: true });
+    }
+  }, [navigate]);
 
   return (
     <>
@@ -446,7 +466,13 @@ const Packages = () => {
               className={`relative z-10 w-1/2 py-2 px-4 font-semibold rounded-full ${
                 activeTab === tab ? "text-white" : "text-gray-700"
               }`}
-              onClick={() => setActiveTab(tab)}
+              onClick={() => {
+                setActiveTab(tab);
+                const firstPackage = packagesData.find(
+                  (pkg) => pkg.type === tab
+                );
+                handleChangePackage(firstPackage.package_name);
+              }}
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1)} Packages
             </button>

@@ -8,6 +8,13 @@ import Packages from "./components/Packages";
 import Services from "./components/Services";
 
 function App() {
+  if (window.innerWidth < 1024)
+    return (
+      <div className="text-black text-center font-medium">
+        This website is under development, Kindly see in desktop for current
+        status.
+      </div>
+    );
   return (
     <Router>
       <div className="">
