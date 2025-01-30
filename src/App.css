@@ -81,7 +81,8 @@ body {
     2px 2px 6px rgb(186, 183, 183);
 }
 .silver-bg {
-  background: radial-gradient(rgb(223, 222, 222), rgb(126, 126, 126));
+  background: radial-gradient(rgb(189, 188, 188), rgb(126, 126, 126));
+  color: #2C2C2C;
 }
 
 .gold-text-glow {
@@ -91,6 +92,7 @@ body {
 }
 .gold-bg {
   background: radial-gradient(rgb(235, 222, 172), rgb(125, 106, 0));
+  color: #2C2C2C;
 }
 
 .diamond-text-glow {
@@ -99,7 +101,8 @@ body {
     2px 2px 4px rgba(49, 49, 49, 0.5), 2px 2px 6px rgba(30, 30, 30, 0.5);
 }
 .diamond-bg {
-  background: radial-gradient(rgb(172, 179, 235), rgb(52, 34, 248));
+  background: radial-gradient(rgb(172, 179, 235), rgb(105, 92, 250));
+  color: #2C2C2C;
 }
 
 .platinum-text-glow {
@@ -109,6 +112,7 @@ body {
 }
 .platinum-bg {
   background: radial-gradient(rgb(223, 222, 222), rgb(82, 82, 82));
+  color: #2C2C2C;
 }
 
 .commercial-text-glow {
@@ -118,4 +122,5 @@ body {
 }
 .commercial-bg {
   background: radial-gradient(rgb(133, 122, 122), rgb(54, 37, 37));
+  color: #fff;
 }

@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaLocationDot } from "react-icons/fa6";
+import { IoCall } from "react-icons/io5";
+import { MdEmail } from "react-icons/md";
 
 function ContactUs() {
   const [formData, setFormData] = useState({
@@ -17,7 +20,6 @@ function ContactUs() {
     address: "",
     message: "",
   });
-  const navigate = useNavigate();
 
   // Handle input change
   const handleChange = (e) => {
@@ -86,13 +88,7 @@ function ContactUs() {
   };
 
   return (
-    <div className="text-secondary-text">
-      <div
-        className="fixed top-4 right-4 text-4xl cursor-pointer"
-        onClick={() => navigate("/")}
-      >
-        &times;
-      </div>
+    <div className="text-secondary-text mb-12">
       <h1 className="text-5xl text-center font-bold text-primary my-8">
         Contact Us
       </h1>
@@ -102,16 +98,37 @@ function ContactUs() {
             Get in touch with us
           </h2>
           <div>
-            <h3 className="text-xl font-medium">Address</h3>
-            <p># 635, 3rd cross Mahalakshmi layout Bangalore-560086</p>
+            <h3 className="text-2xl font-medium">Office Address</h3>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=635,+3rd+cross+Mahalakshmi+layout+Bangalore-560086"
+              className="flex gap-2 items-center text-xl"
+              target="_blank"
+            >
+              <FaLocationDot />
+              <p># 635, 3rd cross Mahalakshmi layout Bangalore-560086</p>
+            </a>
           </div>
           <div>
-            <h3 className="text-xl font-medium">Email</h3>
-            <p>info.neozone@gmail.com</p>
+            <h3 className="text-2xl font-medium">Email</h3>
+            <a
+              href="mailto:info.neozone@gmail.com"
+              className="flex gap-2 items-center text-xl"
+              target="_blank"
+            >
+              <MdEmail />
+              <p>info.neozone@gmail.com</p>
+            </a>
           </div>
           <div>
-            <h3 className="text-xl font-medium">Phone</h3>
-            <p>+91 9739906259</p>
+            <h3 className="text-2xl font-medium">Phone</h3>
+            <a
+              href="tel:+919739906259"
+              className="flex gap-2 items-center text-xl"
+              target="_blank"
+            >
+              <IoCall />
+              <p>+91 9739906259</p>
+            </a>
           </div>
         </div>
 

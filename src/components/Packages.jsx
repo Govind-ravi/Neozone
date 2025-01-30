@@ -432,7 +432,7 @@ const Packages = () => {
 
   return (
     <>
-      {/* Logo */}
+      {/* Logo
       <Link to="/" className="w-56 p-2 fixed top-0 left-0">
         <img src={Logo} alt="Logo" />
       </Link>
@@ -441,15 +441,15 @@ const Packages = () => {
         className="bg-primary fixed top-2 right-2 p-lg rounded text-lg"
       >
         Contact Us
-      </Link>
+      </Link> */}
       <div className="text-secondary-text">
         {/* Header */}
-        <h1 className="text-primary text-6xl font-bold text-center p-2">
+        <h1 className="text-primary text-6xl font-bold text-center">
           Packages
         </h1>
 
         {/* Tabs */}
-        <div className="relative flex items-center justify-between w-96 my-8 mx-auto bg-gray-200 rounded-lg px-2 py-1">
+        <div className="relative flex items-center justify-between w-96 my-4 mx-auto bg-gray-200 rounded-lg px-2 py-1">
           {/* Transitioning Background */}
           <div
             className={`absolute top-0 left-0 w-1/2 h-full bg-primary rounded-lg transition-transform duration-300`}
@@ -480,7 +480,7 @@ const Packages = () => {
         </div>
 
         {/* Packages Grid */}
-        <div className="px-8 py-4 flex w-full items-center justify-center mx-auto my-8 gap-8 sticky top-0 bg-white z-20">
+        <div className="px-8 py-4 flex w-full items-center justify-center mx-auto my-4 gap-8 sticky top-0 bg-white z-20">
           {packagesData
             .filter((pkg) => pkg.type === activeTab) // Filter based on active tab
             .map((pkg) => (

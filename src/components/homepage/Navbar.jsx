@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../../assets/Logo.jpeg";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -13,27 +14,27 @@ function Navbar() {
 
           {/* Menu */}
           <div className="hidden md:flex space-x-8 text-lg font-medium">
-            <a href="#" className="nav-item text-gray-600 hover:text-gray-800">
+            <NavLink to="/" className="nav-item text-gray-600 hover:text-gray-800">
               Home
-            </a>
-            <a href="#" className="nav-item text-gray-600 hover:text-gray-800">
+            </NavLink>
+            <NavLink to="/about" className="nav-item text-gray-600 hover:text-gray-800">
               About Us
-            </a>
-            <a href="/services" className="nav-item text-gray-600 hover:text-gray-800">
+            </NavLink>
+            <NavLink to="/services" className="nav-item text-gray-600 hover:text-gray-800">
               Services
-            </a>
-            <a href="/packages" className="nav-item text-gray-600 hover:text-gray-800">
+            </NavLink>
+            <NavLink to="/packages" className="nav-item text-gray-600 hover:text-gray-800">
               Packages
-            </a>
-            <a href="/gallery" className="nav-item text-gray-600 hover:text-gray-800">
+            </NavLink>
+            <NavLink to="/gallery" className="nav-item text-gray-600 hover:text-gray-800">
               Gallery
-            </a>
-            <a
-              href="/contact-us"
+            </NavLink>
+            <NavLink
+              to="/contact-us"
               className="nav-item text-gray-600 hover:text-gray-800"
             >
               Contact Us
-            </a>
+            </NavLink>
           </div>
 
           {/* Search Icon */}
@@ -54,12 +55,12 @@ function Navbar() {
                 ></path>
               </svg>
             </button>
-            <a
-              href="/signin"
+            <NavLink
+              to="/signin"
               className="bg-primary text-default-text p-lg rounded"
             >
               Sign In
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>

@@ -6,6 +6,9 @@ import ContactUs from "./components/ContactUs";
 import Gallery from "./components/Gallery";
 import Packages from "./components/Packages";
 import Services from "./components/Services";
+import Aboutpage from "./components/aboutpage/Aboutpage";
+import Navbar from "./components/homepage/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   if (window.innerWidth < 1024)
@@ -17,9 +20,11 @@ function App() {
     );
   return (
     <Router>
-      <div className="">
+      <Navbar />
+      <div className="mt-24 text-secondary-text">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<Aboutpage />} />
           <Route path="/signin" element={<AuthForms />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/gallery" element={<Gallery />} />
@@ -27,6 +32,7 @@ function App() {
           <Route path="/services/*" element={<Services />} />
         </Routes>
       </div>
+      <Footer />
     </Router>
   );
 }

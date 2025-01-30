@@ -25,7 +25,7 @@ function CoreValuesSection() {
   const [activeValue, setActiveValue] = useState(-1);
   return (
     <section className="mx-4 md:mx-8 lg:mx-10 my-16 ">
-      <h1 className=" text-center text-primary text-6xl font-bold mb-16">
+      <h1 className="text-center text-primary text-6xl font-bold mb-16">
         Our Core Values
       </h1>
       <div className="grid grid-cols-3 gap-10">

@@ -54,24 +54,24 @@ function PackageCard({ scheme }) {
         }`}
       >
         <h1
-          className={`text-5xl ${textClass} silver-text-glow font-bold text-center`}
+          className={`text-6xl ${textClass} silver-text-glow font-bold text-center`}
         >
           {scheme.package_name}
         </h1>
         <p
-          className={`text-center ${textClass} text-xl silver-text-glow font-semibold`}
+          className={`text-center ${textClass} text-5xl silver-text-glow font-semibold`}
         >
           Rs.{scheme.price_per_sqft}/*- Sqft
         </p>
         <div className="flex flex-col w-[90%] mx-auto p-4 space-y-8">
           <div className="flex items-center justify-center gap-4">
             <div className="flex-1 space-y-2">
-              <h1 className={`text-2xl ${textClass} font-bold`}>
+              <h1 className={`text-4xl ${textClass} font-bold`}>
                 Design & Drawing
               </h1>
-              <ol className="space-y-1 list-disc px-4">
+              <ol className="space-y-1 list-disc px-4 ">
                 {scheme.design_drawing.map((item, i) => (
-                  <li key={i} className="leading-snug text-white">
+                  <li key={i} className="leading-snug text-xl font-medium">
                     {item}
                   </li>
                 ))}
@@ -87,12 +87,12 @@ function PackageCard({ scheme }) {
           </div>
           <div className="flex flex-row-reverse items-center justify-center gap-8">
             <div className="flex-1 space-y-2">
-              <h1 className={`text-2xl ${textClass} font-bold`}>
+              <h1 className={`text-4xl ${textClass} font-bold`}>
                 Government Liaisoning
               </h1>
               <ol className="space-y-1 list-disc px-4">
                 {scheme.government_liaisoning.map((item, i) => (
-                  <li key={i} className="leading-snug text-white">
+                  <li key={i} className="leading-snug text-xl font-medium">
                     {item}
                   </li>
                 ))}
@@ -108,10 +108,10 @@ function PackageCard({ scheme }) {
           </div>
           <div className="flex items-center justify-center gap-4">
             <div className="flex-1 space-y-2">
-              <h1 className={`text-2xl ${textClass} font-bold`}>Structure</h1>
+              <h1 className={`text-4xl ${textClass} font-bold`}>Structure</h1>
               <ol className="space-y-1 list-disc px-4">
                 {scheme.structure.map((item, i) => (
-                  <li key={i} className="leading-snug text-white">
+                  <li key={i} className="leading-snug text-xl font-medium">
                     {item}
                   </li>
                 ))}
@@ -127,12 +127,12 @@ function PackageCard({ scheme }) {
           </div>
           <div className="flex flex-row-reverse items-center justify-center gap-8">
             <div className="flex-1 space-y-2">
-              <h1 className={`text-2xl ${textClass} font-bold`}>
+              <h1 className={`text-4xl ${textClass} font-bold`}>
                 Flooring & Wall Tiling
               </h1>
               <ol className="space-y-1 list-disc px-4">
                 {scheme.floor_wall.map((item, i) => (
-                  <li key={i} className="leading-snug text-white">
+                  <li key={i} className="leading-snug text-xl font-medium">
                     {item}
                   </li>
                 ))}
@@ -148,12 +148,12 @@ function PackageCard({ scheme }) {
           </div>
           <div className="flex items-center justify-center gap-4">
             <div className="flex-1 space-y-2">
-              <h1 className={`text-2xl ${textClass} font-bold`}>
+              <h1 className={`text-4xl ${textClass} font-bold`}>
                 Doors & Windows
               </h1>
               <ol className="space-y-1 list-disc px-4">
                 {scheme.doors_windows.map((item, i) => (
-                  <li key={i} className="leading-snug text-white">
+                  <li key={i} className="leading-snug text-xl font-medium">
                     {item}
                   </li>
                 ))}
@@ -169,12 +169,12 @@ function PackageCard({ scheme }) {
           </div>
           <div className="flex flex-row-reverse items-center justify-center gap-8">
             <div className="flex-1 space-y-2">
-              <h1 className={`text-2xl ${textClass} font-bold`}>
+              <h1 className={`text-4xl ${textClass} font-bold`}>
                 Bathroom & Kitchen Fixtures
               </h1>
               <ol className="space-y-1 list-disc px-4">
                 {scheme.bathroom_kitchen.map((item, i) => (
-                  <li key={i} className="leading-snug text-white">
+                  <li key={i} className="leading-snug text-xl font-medium">
                     {item}
                   </li>
                 ))}
@@ -190,10 +190,10 @@ function PackageCard({ scheme }) {
           </div>
           <div className="flex items-center justify-center gap-4">
             <div className="flex-1 space-y-2">
-              <h1 className={`text-2xl ${textClass} font-bold`}>Electrical</h1>
+              <h1 className={`text-4xl ${textClass} font-bold`}>Electrical</h1>
               <ol className="space-y-1 list-disc px-4">
                 {scheme.electrical.map((item, i) => (
-                  <li key={i} className="leading-snug text-white">
+                  <li key={i} className="leading-snug text-xl font-medium">
                     {item}
                   </li>
                 ))}
@@ -209,10 +209,10 @@ function PackageCard({ scheme }) {
           </div>
           <div className="flex flex-row-reverse items-center justify-center gap-8">
             <div className="flex-1 space-y-2">
-              <h1 className={`text-2xl ${textClass} font-bold`}>Painting</h1>
+              <h1 className={`text-4xl ${textClass} font-bold`}>Painting</h1>
               <ol className="space-y-1 list-disc px-4">
                 {scheme.painting.map((item, i) => (
-                  <li key={i} className="leading-snug text-white">
+                  <li key={i} className="leading-snug text-xl font-medium">
                     {item}
                   </li>
                 ))}
@@ -228,12 +228,12 @@ function PackageCard({ scheme }) {
           </div>
           <div className="flex items-center justify-center gap-4">
             <div className="flex-1 space-y-2">
-              <h1 className={`text-2xl ${textClass} font-bold`}>
+              <h1 className={`text-4xl ${textClass} font-bold`}>
                 Miscellaneous
               </h1>
               <ol className="space-y-1 list-disc px-4">
                 {scheme.miscellaneous.map((item, i) => (
-                  <li key={i} className="leading-snug text-white">
+                  <li key={i} className="leading-snug text-xl font-medium">
                     {item}
                   </li>
                 ))}

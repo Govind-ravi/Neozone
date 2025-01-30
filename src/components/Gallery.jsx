@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { IoMdClose } from "react-icons/io";
+import { RiArrowRightWideFill, RiArrowLeftWideFill } from "react-icons/ri";
 import Construction1 from "../assets/Construction1.jpg";
 import Construction2 from "../assets/Construction2.jpg";
 import Construction3 from "../assets/Construction3.jpg";
@@ -7,113 +9,167 @@ import Construction5 from "../assets/Construction5.jpg";
 import Construction6 from "../assets/Construction6.jpg";
 import Construction7 from "../assets/Construction7.jpg";
 import Construction8 from "../assets/Construction8.jpg";
-import { useNavigate } from "react-router-dom";
-import Navbar from "./homepage/Navbar";
 
-const images = [
-  [
-    Construction3,
-    Construction6,
-    Construction1,
-    Construction7,
-    Construction5,
-    Construction2,
-  ],
-  [
-    Construction4,
-    Construction2,
-    Construction7,
-    Construction8,
-    Construction1,
-    Construction5,
-    Construction3,
-  ],
-  [
-    Construction8,
-    Construction5,
-    Construction6,
-    Construction3,
-    Construction4,
-    Construction1,
-  ],
-  [
-    Construction7,
-    Construction1,
-    Construction4,
-    Construction8,
-    Construction2,
-    Construction6,
-    Construction5,
-  ],
+const projectData = [
+  {
+    image: Construction1,
+    size: "G+2 2077",
+    package: "Premium Package",
+    time: "Completed 1 Month in Advance",
+  },
+  {
+    image: Construction2,
+    size: "G+2 2077",
+    package: "Premium Package",
+    time: "Completed 1 Month in Advance",
+  },
+  {
+    image: Construction3,
+    size: "G+2 2077",
+    package: "Premium Package",
+    time: "Completed 1 Month in Advance",
+  },
+  {
+    image: Construction4,
+    size: "G+2 2077",
+    package: "Premium Package",
+    time: "Completed 1 Month in Advance",
+  },
+  {
+    image: Construction5,
+    size: "G+2 2077",
+    package: "Premium Package",
+    time: "Completed 1 Month in Advance",
+  },
+  {
+    image: Construction6,
+    size: "G+2 2077",
+    package: "Premium Package",
+    time: "Completed 1 Month in Advance",
+  },
+  {
+    image: Construction7,
+    size: "G+2 2077",
+    package: "Premium Package",
+    time: "Completed 1 Month in Advance",
+  },
+  {
+    image: Construction8,
+    size: "G+2 2077",
+    package: "Premium Package",
+    time: "Completed 1 Month in Advance",
+  },
 ];
 
 function Gallery() {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const handleScroll = (event) => {
-    // Get the scroll position of the parent container
-    setScrollPosition(event.target.scrollTop);
-  };
-  const navigate = useNavigate()
-  const galleryRef = useRef(null);
-
-  const child1Speed = 0.2;
-  const child2Speed = 0.4;
-
-  const child1Transform = `translateY(${scrollPosition * child1Speed}px)`;
-  const child2Transform = `translateY(${scrollPosition * child2Speed}px)`;
-
+  const [activeProject, setActiveProject] = useState(-1);
+  const [isDataVisible, setIsDataVisible] = useState(false);
+  console.log(isDataVisible);
 
   useEffect(() => {
-    // Function to handle the auto-scroll
-    const interval = setInterval(() => {
-      if (galleryRef.current) {
-        setScrollPosition((prevPosition) => {
-          const newPosition = prevPosition + 1; // Scroll speed control
-          galleryRef.current.scrollTop = newPosition; // Apply scroll position
-          return newPosition;
-        });
-      }
-    }, 16); // 16ms for 60fps smoothness
+    if (activeProject < 0) {
+      setIsDataVisible(false);
+    } else
+      setTimeout(() => {
+        setIsDataVisible(true);
+      }, 300);
+  }, [activeProject]);
 
-    return () => clearInterval(interval); // Clean up on unmount
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") setActiveProject(-1);
+      if (event.key === "ArrowLeft")
+        setActiveProject((prev) => Math.max(prev - 1, 0));
+      if (event.key === "ArrowRight")
+        setActiveProject((prev) => Math.min(prev + 1, projectData.length - 1));
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   return (
-    <div className="text-secondary-text mt-28">
-        <Navbar/>
-      <div ref={galleryRef}
-        class="grid grid-cols-2 md:grid-cols-4 gap-8 max-h-screen overflow-y-auto"
-        onScroll={handleScroll}
-      >
-        {images.map((imagesSet, i) => (
+    <div className="mx-10 py-12 relative">
+      <div className="grid grid-cols-4 gap-10">
+        {projectData.map((project, i) => (
           <div
             key={i}
-            className={`flex h-fit flex-col gap-8 `}
-            style={
-              i % 2 === 0
-                ? {
-                    transform: child2Transform,
-                    transition: "transform 0.1s ease-out",
-                  }
-                : {
-                    transform: child1Transform,
-                    transition: "transform 0.1s ease-out",
-                  }
-            }
+            className="h-[300px] relative group overflow-hidden cursor-pointer"
+            onClick={() => setActiveProject(i)}
           >
-            {imagesSet.map((image, j) => (
-              <div key={j} className={`w-full `}>
-                <img
-                  className={`${
-                    i % 2 !== 0 ? "h-[500px]" : "h-[465px]"
-                  } w-full object-cover`}
-                  src={image}
-                  alt=""
-                />
-              </div>
-            ))}
+            <img
+              src={project.image}
+              alt=""
+              className="w-full h-full object-cover rounded"
+            />
+            <div className="absolute left-0 w-full h-full bg-gradient-to-b from-transparent to-black/70 top-full group-hover:top-0 transition-all duration-200"></div>
+            <div className="absolute group-hover:bottom-0 -bottom-10 left-2 text-white font-medium text-xl opacity-0 group-hover:opacity-100 transition-all duration-200">
+              <p>{project.size}</p>
+              <p>{project.package}</p>
+            </div>
           </div>
         ))}
+      </div>
+      <div
+        className={`fixed top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2 ${
+          activeProject >= 0 ? "w-screen h-screen" : "w-0 h-0"
+        } transition-all duration-500 bg-black/90 z-[100] flex text-white`}
+      >
+        {
+          <>
+            <div
+              className={`w-[60%] flex items-center justify-center ${
+                isDataVisible ? "opacity-100" : "opacity-0"
+              } transition-all duration-500`}
+            >
+              <img
+                src={activeProject >= 0 && projectData[activeProject].image}
+                alt=""
+                className="max-w-[90%] max-h-[90vh] object-contain"
+              />
+            </div>
+            <div
+              className={`flex flex-col gap-4 justify-center text-5xl font-medium ${
+                isDataVisible ? "opacity-100" : "opacity-0"
+              } transition-all duration-500`}
+            >
+              <p className="">
+                {activeProject >= 0 && projectData[activeProject].size}
+              </p>
+              <p>{activeProject >= 0 && projectData[activeProject].package}</p>
+            </div>
+            <div
+              onClick={() => setActiveProject((prev) => Math.max(prev - 1, 0))}
+              className={`fixed top-1/2 -translate-y-1/2 left-10 text-6xl cursor-pointer  ${
+                activeProject > 0 && isDataVisible ? "opacity-100" : "opacity-0"
+              } transition-all duration-500`}
+            >
+              <RiArrowLeftWideFill />
+            </div>
+            <div
+              onClick={() =>
+                setActiveProject((prev) =>
+                  Math.min(prev + 1, projectData.length - 1)
+                )
+              }
+              className={`fixed top-1/2 -translate-y-1/2 right-10 text-6xl cursor-pointer  ${
+                activeProject < projectData.length - 1 && isDataVisible
+                  ? "opacity-100"
+                  : "opacity-0"
+              } transition-all duration-500`}
+            >
+              <RiArrowRightWideFill />
+            </div>
+          </>
+        }
+        <div
+          onClick={() => setActiveProject(-1)}
+          className={`fixed top-10 right-10 text-4xl cursor-pointer ${
+            activeProject >= 0 ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <IoMdClose />
+        </div>
       </div>
     </div>
   );
