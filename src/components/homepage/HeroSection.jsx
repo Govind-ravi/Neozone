@@ -2,15 +2,18 @@ import React, { useEffect, useRef, useState } from "react";
 import { IoHome } from "react-icons/io5";
 import { RiTeamLine } from "react-icons/ri";
 import { IoIosSchool } from "react-icons/io";
-import Bldg1 from "../../assets/Bldg1.png";
-import Bldg3 from "../../assets/Bldg3.png";
-import Bldg4 from "../../assets/Bldg4.png";
-import Bldg5 from "../../assets/Bldg5.png";
-import Bldg6 from "../../assets/Bldg6.png";
-import Bldg7 from "../../assets/Bldg7.png";
-import Bldg8 from "../../assets/Bldg8.png";
-import Bldg9 from "../../assets/Bldg9.png";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import Project1 from "../../assets/Projects/Project1.jpg";
+import Project2 from "../../assets/Projects/Project2.jpg";
+import Project3 from "../../assets/Projects/Project3.jpg";
+import Project4 from "../../assets/Projects/Project4.jpg";
+import Project5 from "../../assets/Projects/Project5.jpg";
+import Project6 from "../../assets/Projects/Project6.jpg";
+import Project7 from "../../assets/Projects/Project7.jpg";
+import Project8 from "../../assets/Projects/Project8.jpg";
+import Project9 from "../../assets/Projects/Project9.jpg";
+import Project10 from "../../assets/Projects/Project10.jpg";
+import Project11 from "../../assets/Projects/Project11.png";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -20,28 +23,37 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const projectsData = [
   {
-    image: Bldg1,
+    image: Project1,
   },
   {
-    image: Bldg3,
+    image: Project2,
   },
   {
-    image: Bldg4,
+    image: Project3,
   },
   {
-    image: Bldg5,
+    image: Project4,
   },
   {
-    image: Bldg6,
+    image: Project5,
   },
   {
-    image: Bldg7,
+    image: Project6,
   },
   {
-    image: Bldg8,
+    image: Project7,
   },
   {
-    image: Bldg9,
+    image: Project8,
+  },
+  {
+    image: Project9,
+  },
+  {
+    image: Project10,
+  },
+  {
+    image: Project11,
   },
 ];
 
@@ -89,8 +101,8 @@ function HeroSection() {
   }, []);
 
   return (
-    <div className="flex p-4 px-16 gap-4 items-center">
-      <div className="w-[45%] flex flex-col gap-6">
+    <div className="flex flex-col lg:flex-row p-4 px-16 gap-4 items-center">
+      <div className="lg:w-[50%] flex flex-col gap-6">
         <h1 className="text3d text-6xl font-semibold text-primary">
           Neozone Construction & Builders LLP
         </h1>
@@ -136,14 +148,14 @@ function HeroSection() {
           </a>
         </div>
       </div>
-      <div className="w-[55%] h-[550px] flex items-center relative overflow-hidden inner-shadow">
+      <div className="w-full lg:w-[50%] h-[550px] flex items-center relative overflow-hidden inner-shadow">
         {/* Custom Left Arrow */}
-        <button
-          className="absolute left-0 z-10 bg-black/40 text-white p-3 rounded-full shadow-lg hover:bg-black transition"
+        {/* <button
+          className="absolute left-0 z-10 bg-black/40 text text-white p-3 rounded-full shadow-lg hover:bg-black transition"
           onClick={() => swiperRef.current?.slidePrev()}
         >
           <IoIosArrowBack size={30} />
-        </button>
+        </button> */}
         <Swiper
           className="my-slider"
           modules={[Autoplay, EffectCoverflow]}
@@ -155,7 +167,7 @@ function HeroSection() {
           loop={true}
           grabCursor={true}
           centeredSlides={true}
-          slidesPerView={1.3}
+          slidesPerView={1}
           spaceBetween={40}
           coverflowEffect={{
             rotate: 30,
@@ -168,7 +180,7 @@ function HeroSection() {
         >
           {projectsData.map((data, i) => (
             <SwiperSlide key={i} className="my-auto">
-              <div className="image-container bg-gray-500 h-[450px] rounded-xl">
+              <div className="image-container bg-gray-500 h-[500px] rounded-xl">
                 <img
                   src={data.image}
                   alt=""
@@ -179,12 +191,12 @@ function HeroSection() {
           ))}
         </Swiper>
         {/* Custom Right Arrow */}
-        <button
+        {/* <button
           className="absolute right-0 z-10 bg-black/40 text-white p-3 rounded-full shadow-lg hover:bg-black transition"
           onClick={() => swiperRef.current?.slideNext()}
         >
           <IoIosArrowForward size={30} />
-        </button>
+        </button> */}
       </div>
     </div>
   );

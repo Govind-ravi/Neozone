@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../assets/Logo.jpeg";
 import { NavLink } from "react-router-dom";
+import { IoMdMenu, IoMdClose } from "react-icons/io";
+
+const menuItems = [
+  { name: "Home", link: "/" },
+  { name: "About Us", link: "/about" },
+  { name: "Services", link: "/services" },
+  { name: "Packages", link: "/packages" },
+  { name: "Gallery", link: "/gallery" },
+  { name: "Contact Us", link: "/contact" },
+];
 
 function Navbar() {
+  const [isMenu, setIsMenu] = useState(false);
   return (
     <nav className="fixed bg-white w-full top-0 z-50">
       <div className=" mx-auto px-4 sm:px-6 lg:px-10 py-4">
@@ -13,28 +24,16 @@ function Navbar() {
           </div>
 
           {/* Menu */}
-          <div className="hidden md:flex space-x-8 text-lg font-medium">
-            <NavLink to="/" className="nav-item text-gray-600 hover:text-gray-800">
-              Home
-            </NavLink>
-            <NavLink to="/about" className="nav-item text-gray-600 hover:text-gray-800">
-              About Us
-            </NavLink>
-            <NavLink to="/services" className="nav-item text-gray-600 hover:text-gray-800">
-              Services
-            </NavLink>
-            <NavLink to="/packages" className="nav-item text-gray-600 hover:text-gray-800">
-              Packages
-            </NavLink>
-            <NavLink to="/gallery" className="nav-item text-gray-600 hover:text-gray-800">
-              Gallery
-            </NavLink>
-            <NavLink
-              to="/contact-us"
-              className="nav-item text-gray-600 hover:text-gray-800"
-            >
-              Contact Us
-            </NavLink>
+          <div className="hidden lg:flex gap-6 xl:gap-8 text-lg font-medium">
+            {menuItems.map((menu, i) => (
+              <NavLink
+                key={i}
+                to={menu.link}
+                className="nav-item text-gray-600 hover:text-gray-800"
+              >
+                {menu.name}
+              </NavLink>
+            ))}
           </div>
 
           {/* Search Icon */}
@@ -61,8 +60,50 @@ function Navbar() {
             >
               Sign In
             </NavLink>
+            <div
+              onClick={() => setIsMenu((prev) => !prev)}
+              className="text-black text-5xl lg:hidden z-10 flex flex-col gap-1 items-end w-8"
+            >
+              <div
+                className={`absolute  -translate-y-1/2 w-6 h-1 bg-black ${
+                  isMenu ? "rotate-45 top-1/2" : "top-[calc(50%-8px)] "
+                } transition-all duration-500`}
+              ></div>
+              <div
+                className={`absolute top-1/2 -translate-y-1/2 w-4 h-1 bg-black ${
+                  isMenu ? "opacity-0" : "opacity-100"
+                } transition-all duration-500`}
+              ></div>
+              <div
+                className={`absolute  -translate-y-1/2 w-6 h-1 bg-black ${
+                  isMenu ? "-rotate-45 top-1/2" : " top-[calc(50%+8px)]"
+                } transition-all duration-500`}
+              ></div>
+              <div></div>
+            </div>
           </div>
         </div>
+      </div>
+      <div
+        className={`fixed w-screen top-0 h-screen bg-white flex flex-col justify-center text-5xl p-8 gap-5 font-medium ${
+          isMenu ? "right-0" : "right-full"
+        } overflow-hidden transition-all duration-1000 text-black`}
+      >
+        {menuItems.map((menu, i) => (
+          <>
+            <NavLink
+              onClick={() => setIsMenu((prev) => !prev)}
+              key={i}
+              to={menu.link}
+              className={({ isActive }) =>
+                `${isActive ? "  text-primary" : ""}`
+              }
+            >
+              {menu.name}
+            </NavLink>
+            <hr className="bg-black" />
+          </>
+        ))}
       </div>
     </nav>
   );

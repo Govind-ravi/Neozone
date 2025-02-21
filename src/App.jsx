@@ -11,17 +11,17 @@ import Navbar from "./components/homepage/Navbar";
 import Footer from "./components/Footer";
 
 function App() {
-  if (window.innerWidth < 1024)
-    return (
-      <div className="text-black text-center font-medium">
-        This website is under development, Kindly see in desktop for current
-        status.
-      </div>
-    );
+  // if (window.innerWidth < 1024)
+  //   return (
+  //     <div className="text-black text-center font-medium">
+  //       This website is under development, Kindly see in desktop for current
+  //       status.
+  //     </div>
+  //   );
   return (
     <Router>
       <Navbar />
-      <div className="mt-24 text-secondary-text">
+      <div className="mt-24 text-secondary-text min-h-[80vh]">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<Aboutpage />} />

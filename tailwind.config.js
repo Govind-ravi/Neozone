@@ -13,6 +13,18 @@ export const theme = {
       lg: "0.5rem 1rem",
       sm: "0.25rem 0.5rem",
     },
+    screens: {
+      ls: "320px",
+      xxs: "380px",
+      xs: "480px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+      "3xl": "1920px",
+      "4k": "2560px",
+    },
   },
 };
 export const plugins = [];

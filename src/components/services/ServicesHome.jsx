@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 function ServicesHome() {
   return (
     <>
-      <h1 className="text-primary text-6xl font-bold text-center p-2">
+      <h1 className="text-primary text-6xl font-bold text-center px-2">
         Our Services
       </h1>
       <p className="text-center w-[60%] mx-auto font-medium">
@@ -17,7 +17,7 @@ function ServicesHome() {
         tailored to meet your construction and design needs. Explore how we
         bring expertise and creativity to every project.
       </p>
-      <div className="w-[80%] mx-auto my-16 space-y-10">
+      <div className="w-[98%] md:w-[95%] lg:w-[90%] xl:w-[80%] mx-auto my-16 space-y-10">
         <div className="flex items-center gap-10">
           <div className="w-[60%] space-y-4">
             <h1 className="text-4xl text-primary font-semibold">
